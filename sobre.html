@@ -4,111 +4,87 @@
         <title></title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
         <link href="css/style.css" rel="stylesheet">
-        <style>
-            /* Importação de fonte da Google Fonts (exemplo: Montserrat) */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
-
-#sobre {
-    background-color: #121212; /* Fundo escuro similar ao da imagem */
-    color: #e0e0e0; /* Cor de texto clara para contraste */
-    padding: 80px 0;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.sobre-content {
-    display: flex;
-    align-items: center;
-    gap: 40px; /* Espaçamento entre texto e imagem */
-    flex-wrap: wrap; /* Permite que os elementos quebrem em telas menores */
-}
-
-.texto-sobre {
-    flex: 1; /* Ocupa o espaço disponível */
-    min-width: 300px;
-}
-
-.texto-sobre h2 {
-    font-size: 2.5rem;
-    color: #7A28A8; /* Cor roxa dos títulos na imagem */
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.texto-sobre p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-}
-
-.valores {
-    margin-top: 20px;
-}
-
-.valores h3 {
-    font-size: 1.5rem;
-    color: #6CDEA8; /* Toque de verde-água para contraste */
-    margin-bottom: 15px;
-}
-
-.valores ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.valores li {
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #1E1E1E;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border-left: 3px solid #7A28A8;
-    transition: transform 0.3s ease;
-}
-
-.valores li:hover {
-    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
-}
-
-.imagem-sobre {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
-}
-
-.imagem-sobre img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px; /* Bordas arredondadas para um visual moderno */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .sobre-content {
-        flex-direction: column; /* Coloca os elementos em coluna em telas menores */
-    }
-}
-        </style>
     </head>
+    <style>
+        /* Estilos específicos para a seção "Sobre" */
+        .sobre {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 5%;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .sobre .container {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sobre-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .sobre h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #8a2be2;
+            margin-bottom: 20px;
+        }
+        
+
+        .sobre .valores ul li i {
+            font-size: 1.7em;
+            margin-right: 12px;
+            vertical-align: middle;
+            color: #8a2be2;
+        }
+        
+
+        .sobre .texto-sobre {
+            flex: 1 1 60%;
+            padding-right: 20px;
+            font-size: 1.1rem;
+        }
+
+        .sobre .imagem-sobre {
+            flex: 1 1 35%;
+        }
+
+        .sobre .imagem-sobre img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        
+
+        .h3 {
+            
+            font-size: 1.5rem;
+            color: #8a2be2;
+            margin-bottom: 10px;
+        }
+    </style>
+
     <body>
         <section id="sobre">
     <div class="container">
         <div class="sobre-content">
             <div class="texto-sobre">
                 <h2>Marketing criativo e interativo</h2>
-                <p>Na Marketing Alternativi, nós transformamos ideias em experiências inesquecíveis. Somos uma equipe de criadores, estrategistas e contadores de histórias que acreditam no poder da conexão genuína. Em um mundo de ruído, nossa missão é fazer a sua marca ser ouvida, vista e sentida. Mergulhe em uma jornada onde a inovação e a criatividade se unem para construir pontes entre você e seu público. Somos mais do que uma agência, somos seus parceiros na criação de um futuro digital vibrante.</p>
+                <p>No Marketing Alternativi, nós transformamos ideias em experiências inesquecíveis, Somos uma equipe de criadores, estrategistas e contadores de histórias que acreditam no poder da conexão genuína, Em um mundo de ruído, nossa missão é fazer a sua marca ser ouvida, vista e sentida. Venha conosco e mergulhe em uma jornada onde a inovação e a criatividade se unem para construir pontes entre você e seu público alvo. Somos mais do que uma agência, somos seus parceiros na criação de um futuro digital vibrante.</p>
                 <div class="valores">
                     <h3>Nossos Valores</h3>
                     <ul>
