@@ -7,6 +7,7 @@ body{
     max-width: 1200px;
     margin: 0 auto;
     padding: 15px;
+    max-height: 100%;
 }
 
 header{
@@ -73,7 +74,9 @@ p{
 }
 
 img{
-    width: 600px;
+    width: 500px;
+    padding-left: 40px;
+    
 }
 
 form{
