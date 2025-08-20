@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Marketing Alternativo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<style>
+    /* Paleta de Cores baseada na imagem */
+:root {
+    --primary-dark: #191419;
+    --secondary-dark: #2c252c;
+    --primary-purple: #8e44ad;
+    --secondary-purple: #9b59b6;
+    --text-light: #f5f5f5;
+    --accent-green: #2ecc71;
+}
+
+/* Estilos gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Header (mantido do exemplo anterior) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 2rem;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--primary-purple);
+}
+
+.cta-button {
+    background-color: var(--primary-purple);
+    color: white !important;
+    border-radius: 20px;
+    padding: 0.5rem 1.5rem !important;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-purple);
+}
+
+/* Seção de Contato Atualizada */
+.contact-section {
+    padding: 8rem 5% 4rem;
+    background-color: var(--secondary-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-header {
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 3rem;
+}
+
+.main-title {
+    color: var(--primary-purple);
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: #ccc;
+    font-size: 1.2rem;
+}
+
+.contact-container {
+    background-color: var(--primary-dark);
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 700px;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--primary-purple);
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--secondary-purple);
+    border-radius: 8px;
+    background-color: var(--secondary-dark);
+    color: var(--text-light);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #888;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: var(--accent-green);
+}
+
+.submit-button {
+    width: 100%;
+    padding: 1.2rem;
+    background-color: var(--primary-purple);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-purple);
+    transform: translateY(-3px);
+}
+
+.form-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: bold;
+    display: none;
+    text-align: center;
+}
+
+.form-message.success {
+    background-color: #2e7d32;
+    color: white;
+}
+
+.form-message.error {
+    background-color: #d32f2f;
+    color: white;
+}
+
+/* Contatos do Rodapé da Seção */
+.contact-footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 700px;
+}
+
+.footer-title {
+    color: var(--accent-green);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.contact-info {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.icon-footer {
+    font-size: 1.5rem;
+    color: var(--primary-purple);
+    margin-right: 0.8rem;
+}
+
+.contact-info a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--primary-purple);
+}
+
+.social-links-footer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-icon-footer {
+    font-size: 2rem;
+    color: var(--text-light);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon-footer:hover {
+    color: var(--accent-green);
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .contact-container {
+        padding: 2rem;
+    }
+
+    .footer-title {
+        font-size: 1.5rem;
+    }
+}
+</style>
+<body>
+
+    <main>
+        <section class="contact-section">
+            <div class="contact-header">
+                <h1 class="main-title">Pronto para transformar sua marca?</h1>
+                <p class="subtitle">Chegou a hora de levar sua comunicação para o próximo nível. Preencha o formulário e descubra como podemos criar uma estratégia de marketing criativa e eficaz para o seu negócio!</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-form-container">
+                    <form id="contact-form">
+                        <div class="input-group">
+                            <label for="name">Nome Completo</label>
+                            <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                        </div>
+                        <div class="input-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required placeholder="exemplo@dominio.com">
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">Telefone / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(XX) XXXXX-XXXX">
+                        </div>
+                        <div class="input-group">
+                            <label for="segment">Qual o segmento da sua empresa?</label>
+                            <input type="text" id="segment" name="segment" required placeholder="Ex: Varejo, Tecnologia, Alimentação">
+                        </div>
+                        <div class="input-group">
+                            <label for="location">Local de Atuação</label>
+                            <input type="text" id="location" name="location" required placeholder="Ex: Fortaleza, Ceará ou Brasil">
+                        </div>
+                        <div class="input-group">
+                            <label for="message">Fale-nos um pouco sobre a sua necessidade</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Descreva brevemente sua necessidade ou projeto"></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Mandar uma Mensagem Mágica!</button>
+                    </form>
+                    <div id="form-message" class="form-message"></div>
+                </div>
+            </div>
+
+            <div class="contact-footer">
+                <h2 class="footer-title">Ou fale diretamente conosco!</h2>
+                <div class="contact-info">
+                    <p>
+                        <i class="fas fa-envelope icon-footer"></i>
+                        E-mail: <a href="mailto:andremarcal.dev@gmail.com">andremarcal.dev@gmail.com</a>
+                    </p>
+                    <p>
+                        <i class="fab fa-whatsapp icon-footer"></i>
+                        Telefone/WhatsApp: <a href="https://wa.me/5585996485562">(85) 99648-5562</a>
+                    </p>
+                </div>
+                <div class="social-links-footer">
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f social-icon-footer"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram social-icon-footer"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter social-icon-footer"></i></a>
+                    <a href="https://www.telegram.org" target="_blank"><i class="fab fa-telegram-plane social-icon-footer"></i></a>
+                    <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube social-icon-footer"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
