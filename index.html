@@ -46,9 +46,22 @@
             </form>
         </aside>
 
-        <article>  
+        <article class="animated-image">  
             <img src="./img/ilustracao-desenhada-a-mao-de-pessoas-com-smartphone-para-marketing (2).png" alt="mulher-roxa">
         </article>
+        <script>
+          // Move the image in a floating, animated way
+          const article = document.querySelector('.animated-image');
+          let angle = 0;
+          function animate() {
+            angle += 0.02;
+            const x = Math.sin(angle) * 20;
+            const y = Math.cos(angle) * 20;
+            article.style.transform = `translate(${x}px, ${y}px)`;
+            requestAnimationFrame(animate);
+          }
+          animate();
+        </script>
 
     </main>
     
