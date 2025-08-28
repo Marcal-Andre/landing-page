@@ -32,12 +32,14 @@ a{
   color: white;
   font-size: 20px;
   padding-right: 40px;
+  text-decoration: none;
 
 }
 
 a:hover{
     color: rgb(132, 14, 201);
     transition: 0.3s all;
+    text-decoration: underline;
 }
 
 #inscreva-se-btn{
@@ -88,16 +90,18 @@ form{
     width: 70%;
 }
 
-form [type="submit"]{
+.submit-button {
     height: 50px;
     width: 50%;
     background-color: rgb(132,14, 201);
     font: white;
     font-weight: bold;
+    border-radius: 20px;
 }
 
-form [type="submit"]:hover{
+.submit-button:hover{
     cursor: pointer;
+    color: white;
 }    
 
 input{
@@ -108,3 +112,4 @@ input{
     border: none;
     font-size: 15px;
 }
+

@@ -15,7 +15,7 @@
             <h1>Alternativo</h1>
         </div>
 
-        <ul></ul>
+        <ul></ul>  
             <li><a href="#">Home</a></li>
             <li><a href="./serviços.html">Serviços</a></li>
             <li><a href="./sobre.html">Sobre</a></li>
@@ -38,30 +38,18 @@
                 vida. Bem-vindo à nossa página de Marketing Criativo!
             </p>
     
-            <form>
+            <form id="contact-form">
                 <input type="text"placeholder="Nome">
                 <input type="text"placeholder="Contato">
-                <input type="submit"value="Enviar >">
+                <button class="submit-button" type="submit"value="Enviar">Enviar</button>
 
             </form>
         </aside>
 
-        <article class="animated-image">  
-            <img src="./img/ilustracao-desenhada-a-mao-de-pessoas-com-smartphone-para-marketing (2).png" alt="mulher-roxa">
+        <article class="animated-image">   
+            <img src="./img/ilustracao-desenhada-a-mao-de-pessoas-com-smartphone-para-marketing (2).png" alt="iamagem referente ao marketing"> 
         </article>
-        <script>
-          // Move the image in a floating, animated way
-          const article = document.querySelector('.animated-image');
-          let angle = 0;
-          function animate() {
-            angle += 0.02;
-            const x = Math.sin(angle) * 20;
-            const y = Math.cos(angle) * 20;
-            article.style.transform = `translate(${x}px, ${y}px)`;
-            requestAnimationFrame(animate);
-          }
-          animate();
-        </script>
+         
 
     </main>
     
