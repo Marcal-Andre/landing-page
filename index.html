@@ -4,55 +4,364 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Landing Page...</title>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Marketing Alternativo | Estratégia, Criatividade & Resultados</title>
 </head>
 <body>
+    <!-- Efeitos de Luz de Fundo (Glow Orbs) -->
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Header / Barra de Navegação -->
     <header>
         <div id="title">
-            <h1>Marketing</h1>
-            <h1>Alternativo</h1>
+            <a href="#" class="brand-logo">
+                <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
+                <h1>Marketing <span>Alternativo</span></h1>
+            </a>
         </div>
 
-        <ul></ul>  
-            <li><a href="#">Home</a></li>
-            <li><a href="./serviços.html">Serviços</a></li>
-            <li><a href="./sobre.html">Sobre</a></li>
-            <li><a href="./contato.html">Contato</a></li>
-            <li>
-                <a href="https://wa.me/5585996485562?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20marketing." id="inscreva-se-btn" target="_blank">Contacte-nos <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" style="width: 19px; height: 19px; vertical-align: middle; margin-left: 5px;"></a>
-            </li>
-        </ul>
-    
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#diferenciais">Diferenciais</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li>
+                    <a href="https://wa.me/5585996485562?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20marketing." id="inscreva-se-btn" target="_blank">
+                        Fale no WhatsApp 
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon" class="whatsapp-icon">
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-        <aside>
+    <!-- Hero Section -->
+    <main id="home">
+        <aside class="hero-content">
+            <div class="badge">
+                <span class="badge-dot"></span>
+                <span>✨ Agência de Performance & Criatividade</span>
+            </div>
 
-            <h2><span>Inscreva-se Agora</span></h2>
-            <h2>E Fique Antenado</h2>
+            <h2>Estratégias Únicas para Fazer Sua Marca <span>Decolar no Digital</span></h2>
 
             <p>
-                Você está prestes a entrar em uma jornada única, onde a imaginação 
-                se mistura com estratégia, cores dançam com palavras e ideias ganham 
-                vida. Bem-vindo à nossa página de Marketing Criativo!
+                Unimos criatividade disruptiva, análise de dados e design de alto impacto para converter visitantes em clientes fiéis. Chega de estratégias genéricas.
             </p>
     
-            <form id="contact-form">
-                <input type="text"placeholder="Nome">
-                <input type="text"placeholder="Contato">
-                <button class="submit-button" type="submit"value="Enviar">Enviar</button>
+            <form id="contact-form" class="glass-form">
+                <div class="form-header">
+                    <h3>Receba um Diagnóstico Gratuito</h3>
+                    <p>Preencha abaixo e entraremos em contato em até 24h.</p>
+                </div>
+                <div class="input-group">
+                    <i class="fa-regular fa-user input-icon"></i>
+                    <input type="text" name="name" placeholder="Seu Nome Completo" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-brands fa-whatsapp input-icon"></i>
+                    <input type="text" name="contact" placeholder="Seu WhatsApp ou E-mail" required>
+                </div>
+                <button class="submit-button" type="submit">
+                    <span>Quero Alavancar Minha Marca</span>
+                    <i class="fa-solid fa-arrow-right btn-icon"></i>
+                </button>
             </form>
-            
+            <div id="form-message" class="form-message" style="display: none;"></div>
         </aside>
 
-        <article class="animated-image">   
-            <img src="./img/ilustracao-desenhada-a-mao-de-pessoas-com-smartphone-para-marketing (2).png" alt="iamagem referente ao marketing"> 
+        <article class="animated-image-wrapper">   
+            <div class="image-glow"></div>
+            <img src="./img/ilustracao-desenhada-a-mao-de-pessoas-com-smartphone-para-marketing (2).png" alt="Marketing Criativo e Estratégico" class="hero-img"> 
         </article>
-         
-
     </main>
-    
+
+    <!-- Barra de Métricas / Prova Social -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="stat-number">+150</span>
+                <span class="stat-label">Projetos Entregues</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Satisfação dos Clientes</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+                <span class="stat-number">+300%</span>
+                <span class="stat-label">Engajamento Médio</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+                <span class="stat-number">R$ 2M+</span>
+                <span class="stat-label">Gerados em Receita</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Serviços -->
+    <section id="servicos" class="services-section">
+        <div class="section-header">
+            <div class="badge">Nossas Soluções</div>
+            <h2>O Que Fazemos de <span>Melhor</span></h2>
+            <p>Soluções completas para posicionar sua marca como líder do seu mercado.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>Tráfego Pago & Performance</h3>
+                <p>Gestão estratégica de anúncios no Meta Ads e Google Ads para atrair clientes prontos para comprar.</p>
+                <a href="#home" class="service-link">Saiba Mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card highlight">
+                <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+                <h3>Branding & Identidade Visual</h3>
+                <p>Construção de marcas memoráveis, identidades visuais exclusivas e manuais que encantam seu público.</p>
+                <a href="#home" class="service-link">Saiba Mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <h3>Social Media & Conteúdo Viral</h3>
+                <p>Narrativas visuais, Reels de alta retenção e estratégias de conteúdo que geram autoridade e comunidade.</p>
+                <a href="#home" class="service-link">Saiba Mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                <h3>Landing Pages de Alta Conversão</h3>
+                <p>Páginas web modernas, ultra-rápidas e otimizadas com copywriting focado em transformar cliques em vendas.</p>
+                <a href="#home" class="service-link">Saiba Mais <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Diferenciais -->
+    <section id="diferenciais" class="differentials-section">
+        <div class="diff-container">
+            <div class="diff-text">
+                <div class="badge">Por que nos escolher?</div>
+                <h2>Marketing Sem Fórmulas Prontas, Com <span>Resultados Reais</span></h2>
+                <p>Enquanto a maioria entrega métricas de vaidade, nós focamos naquilo que realmente importa para a saúde do seu negócio: faturamento, retenção e posicionamento sólido.</p>
+
+                <div class="diff-list">
+                    <div class="diff-item">
+                        <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+                        <div>
+                            <h4>Estratégia 100% Personalizada</h4>
+                            <p>Analisamos seu nicho a fundo antes de qualquer linha de ação.</p>
+                        </div>
+                    </div>
+                    <div class="diff-item">
+                        <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+                        <div>
+                            <h4>Relatórios Claros & Transparentes</h4>
+                            <p>Sem enrolação técnica: você sabe exatamente onde cada centavo foi investido.</p>
+                        </div>
+                    </div>
+                    <div class="diff-item">
+                        <div class="diff-check"><i class="fa-solid fa-check"></i></div>
+                        <div>
+                            <h4>Equipe Especializada & Ágil</h4>
+                            <p>Designers, copywriters e gestores de tráfego dedicados ao seu crescimento.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="diff-banner">
+                <div class="card-float-top">
+                    <i class="fa-solid fa-arrow-trend-up"></i>
+                    <div>
+                        <strong>+240% ROI Médio</strong>
+                        <span>Campanhas Otimizadas</span>
+                    </div>
+                </div>
+                <div class="card-float-bottom">
+                    <i class="fa-solid fa-star"></i>
+                    <div>
+                        <strong>5.0 / 5.0</strong>
+                        <span>Avaliação dos Clientes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Depoimentos -->
+    <section id="depoimentos" class="testimonials-section">
+        <div class="section-header">
+            <div class="badge">Depoimentos</div>
+            <h2>O Que Nossos <span>Parceiros</span> Dizem</h2>
+            <p>Empresas e marcas que transformaram seus resultados digitais com a gente.</p>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="quote">"A abordagem criativa da Marketing Alternativo triplicou nossas vendas em apenas 60 dias. O time é super transparente e comprometido!"</p>
+                <div class="author-info">
+                    <div class="author-avatar"><i class="fa-solid fa-user-tie"></i></div>
+                    <div>
+                        <h4>Carlos Eduardo</h4>
+                        <span>CEO na InovaTech</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card highlight">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="quote">"Nossa identidade visual e as páginas criadas por eles elevaram a nossa marca para outro patamar. O retorno sobre o investimento foi imediato."</p>
+                <div class="author-info">
+                    <div class="author-avatar"><i class="fa-solid fa-user-ninja"></i></div>
+                    <div>
+                        <h4>Mariana Silva</h4>
+                        <span>Fundadora da Studio Bella</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p class="quote">"Eles não vendem só marketing, entregam soluções de negócios. O tráfego pago deles é o mais assertivo com o qual já trabalhei."</p>
+                <div class="author-info">
+                    <div class="author-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <div>
+                        <h4>Rodrigo Mendes</h4>
+                        <span>Diretor Comercial na Solaris</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de FAQ (Perguntas Frequentes) -->
+    <section id="faq" class="faq-section">
+        <div class="section-header">
+            <div class="badge">Dúvidas Comuns</div>
+            <h2>Perguntas <span>Frequentes</span></h2>
+            <p>Tire suas dúvidas e veja como podemos impulsionar sua marca.</p>
+        </div>
+
+        <div class="faq-accordion">
+            <div class="faq-item active">
+                <button class="faq-question">
+                    <span>Como funciona o diagnóstico gratuito?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Ao preencher o formulário ou chamar no WhatsApp, nossa equipe analisa o seu posicionamento atual, presença digital e concorrência para apresentar um plano tático customizado sem compromisso.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Em quanto tempo começo a ver os primeiros resultados?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Para tráfego pago e landing pages, os primeiros leads e vendas costumam surgir já nas primeiras semanas. Para branding e autoridade orgânica, os resultados crescem de forma exponencial ao longo dos meses.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Vocês atendem negócios locais ou apenas empresas online?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Atendemos ambos! Possuímos estratégias específicas para negócios locais (atraindo clientes da sua região) e negócios digitais/e-commerces em escala nacional.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Como recebo os relatórios de desempenho?</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Disponibilizamos dashboards interativos atualizados em tempo real e realizamos reuniões periódicas de alinhamento com os principais insights e próximos passos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner CTA Final -->
+    <section class="cta-banner-section">
+        <div class="cta-box">
+            <h2>Pronto para Levar Sua Marca ao <span>Próximo Nível</span>?</h2>
+            <p>Dê o primeiro passo hoje mesmo e descubra como uma estratégia sob medida pode transformar seu faturamento.</p>
+            <div class="cta-buttons">
+                <a href="#home" class="submit-button primary-cta">
+                    <span>Solicitar Diagnóstico Gratuito</span>
+                    <i class="fa-solid fa-rocket"></i>
+                </a>
+                <a href="https://wa.me/5585996485562?text=Olá%2C%20gostaria%20de%20falar%20com%20um%20especialista." target="_blank" class="whatsapp-cta">
+                    <i class="fa-brands fa-whatsapp"></i> Falar com Especialista
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Compacto / Achatado -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="brand-logo">
+                    <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
+                    <h2>Marketing <span>Alternativo</span></h2>
+                </a>
+                <span class="footer-copyright">&copy; 2026 Todos os direitos reservados.</span>
+            </div>
+
+            <nav class="footer-nav">
+                <a href="#home">Início</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#diferenciais">Diferenciais</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+
+            <div class="footer-right">
+                <div class="social-links">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/5585996485562" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

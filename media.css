@@ -1,32 +1,146 @@
-@media screen and (max-width: 760px) {
-
-    header{
-    flex-direction: column;
+@media screen and (max-width: 992px) {
+    main {
+        grid-template-columns: 1fr;
+        text-align: center;
+        margin-top: 20px;
+        gap: 40px;
     }
 
- main{
-    flex-direction: column;
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
- h2{
-    font-size: 38px;
-   }
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-form{
-    margin: 0 auto;
-    width: 100%;
-    } 
+    .glass-form {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
 
-input{
-    align-self: center;
- }
+    .animated-image-wrapper {
+        order: -1;
+    }
 
-img{
-display: none;
-   }
+    .hero-img {
+        max-width: 360px;
+    }
 
-ul{
-    text-align: center;
-   }
+    .diff-container {
+        grid-template-columns: 1fr;
+        padding: 35px 25px;
+    }
 
+    .diff-banner {
+        min-height: auto;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    nav li a {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .hero-content h2 {
+        font-size: 34px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .glass-form {
+        padding: 20px;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 25px 20px;
+    }
+
+    .stat-divider {
+        width: 80%;
+        height: 1px;
+    }
+
+    .section-header h2 {
+        font-size: 30px;
+    }
+
+    .diff-text h2 {
+        font-size: 28px;
+    }
+
+    .cta-box {
+        padding: 40px 20px;
+    }
+
+    .cta-box h2 {
+        font-size: 28px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .primary-cta, .whatsapp-cta {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+        padding: 20px 15px;
+    }
+
+    .footer-brand {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .footer-copyright {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .footer-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .footer-right .social-links {
+        justify-content: center;
+    }
+
+    .hero-img {
+        max-width: 260px;
+    }
 }

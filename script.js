@@ -1,44 +1,80 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // -------------------------------------------------------------
+    // 1. FAQ Accordion Interativo
+    // -------------------------------------------------------------
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq-question');
+        questionBtn.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+
+            // Fecha todos os outros itens para manter o accordion limpo
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+
+            // Alterna o estado do item clicado
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+
+    // -------------------------------------------------------------
+    // 2. Manipulação e Feedback do Formulário
+    // -------------------------------------------------------------
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
 
-    contactForm.addEventListener('submit', (event) => {
-        event.preventDefault(); // Impede o envio padrão do formulário
+    if (contactForm) {
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault();
 
-        const formData = new FormData(contactForm);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const phone = formData.get('phone');
-        const segment = formData.get('segment');
-        const location = formData.get('location');
-        const message = formData.get('message');
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const contact = formData.get('contact');
 
-        // Validação básica para garantir que todos os campos obrigatórios foram preenchidos
-        if (name && email && phone && segment && location) {
-            // Aqui você poderia enviar os dados para um backend usando fetch()
-            // Exemplo:
-            // fetch('/api/contact', {
-            //     method: 'POST',
-            //     body: JSON.stringify({ name, email, phone, segment, location, message }),
-            //     headers: { 'Content-Type': 'application/json' }
-            // }).then(response => { ... });
+            if (name && contact && formMessage) {
+                formMessage.textContent = '🎉 Diagnóstico solicitado com sucesso! Nossa equipe entrará em contato em breve.';
+                formMessage.className = 'form-message success';
+                formMessage.style.display = 'block';
 
-            // Simula uma resposta de sucesso
-            formMessage.textContent = 'Mensagem enviada! Aguarde nosso contato. Estamos ansiosos para conversar com você!';
-            formMessage.className = 'form-message success';
-            formMessage.style.display = 'block';
+                const btn = contactForm.querySelector('.submit-button');
+                const originalContent = btn.innerHTML;
+                btn.innerHTML = '<span>Solicitação Enviada! ✓</span>';
+                btn.style.filter = 'brightness(1.2)';
 
-            // Limpa o formulário após 5 segundos
-            setTimeout(() => {
-                contactForm.reset();
-                formMessage.style.display = 'none';
-            }, 5000);
+                setTimeout(() => {
+                    contactForm.reset();
+                    formMessage.style.display = 'none';
+                    btn.innerHTML = originalContent;
+                    btn.style.filter = 'none';
+                }, 4500);
+            } else if (formMessage) {
+                formMessage.textContent = 'Por favor, preencha seu nome e contato.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+            }
+        });
+    }
 
-        } else {
-            // Exibe mensagem de erro
-            formMessage.textContent = 'Por favor, preencha todos os campos obrigatórios.';
-            formMessage.className = 'form-message error';
-            formMessage.style.display = 'block';
-        }
+    // -------------------------------------------------------------
+    // 3. Efeito de Scroll Suave para Links Internos
+    // -------------------------------------------------------------
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        });
     });
 });
