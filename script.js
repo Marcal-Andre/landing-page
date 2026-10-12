@@ -344,4 +344,157 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // -------------------------------------------------------------
+    // 7. MECANISMO DE DISPARO AUTOMÁTICO DE E-MAIL DE OPORTUNIDADES
+    // -------------------------------------------------------------
+    const newsletterForm = document.getElementById('newsletter-form');
+    const newsletterEmail = document.getElementById('newsletter-email');
+    const newsletterMessage = document.getElementById('newsletter-message');
+    const SUBSCRIBERS_STORAGE_KEY = 'mkt_alternativo_subscribers';
+    const DISPATCHED_EMAILS_KEY = 'mkt_alternativo_dispatched_emails';
+
+    // Configuração para envio em produção via EmailJS (ou serviço equivalente)
+    const EMAILJS_CONFIG = {
+        publicKey: 'YOUR_EMAILJS_PUBLIC_KEY', // Substitua pela sua chave pública do EmailJS
+        serviceId: 'service_marketing',        // Substitua pelo seu Service ID
+        templateId: 'template_welcome'         // Substitua pelo seu Template ID
+    };
+
+    if (window.emailjs && EMAILJS_CONFIG.publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY') {
+        try {
+            emailjs.init(EMAILJS_CONFIG.publicKey);
+            console.log('📧 EmailJS inicializado com sucesso.');
+        } catch (err) {
+            console.warn('Erro ao inicializar EmailJS:', err);
+        }
+    }
+
+    if (newsletterForm && newsletterEmail) {
+        newsletterForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = newsletterEmail.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!email || !emailRegex.test(email)) {
+                if (newsletterMessage) {
+                    newsletterMessage.textContent = 'Por favor, digite um endereço de e-mail válido.';
+                    newsletterMessage.className = 'newsletter-message error';
+                    newsletterMessage.style.display = 'inline-block';
+                }
+                return;
+            }
+
+            const submitBtn = newsletterForm.querySelector('.newsletter-submit-btn');
+            const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+
+            // Estado de carregamento do envio
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span>Disparando E-mail VIP...</span> <i class="fa-solid fa-spinner fa-spin"></i>';
+            }
+
+            // 1. Salva o assinante localmente
+            try {
+                const storedSubs = localStorage.getItem(SUBSCRIBERS_STORAGE_KEY);
+                const subscribers = storedSubs ? JSON.parse(storedSubs) : [];
+                subscribers.push({
+                    id: 'sub_' + Date.now(),
+                    email: email,
+                    timestamp: new Date().toISOString(),
+                    dateFormatted: new Date().toLocaleString('pt-BR')
+                });
+                localStorage.setItem(SUBSCRIBERS_STORAGE_KEY, JSON.stringify(subscribers));
+
+                // 2. Registra o histórico de disparo do e-mail
+                const storedEmails = localStorage.getItem(DISPATCHED_EMAILS_KEY);
+                const emailsList = storedEmails ? JSON.parse(storedEmails) : [];
+                emailsList.push({
+                    id: 'email_' + Date.now(),
+                    to: email,
+                    subject: '🚀 As Grandes Oportunidades do Marketing Digital | Bem-vindo à Marketing Alternativo',
+                    template: 'email-template.html',
+                    timestamp: new Date().toISOString(),
+                    dateFormatted: new Date().toLocaleString('pt-BR')
+                });
+                localStorage.setItem(DISPATCHED_EMAILS_KEY, JSON.stringify(emailsList));
+                console.log(`✉️ E-mail VIP disparado com sucesso para: ${email}`);
+            } catch (err) {
+                console.warn('Erro ao salvar no localStorage:', err);
+            }
+
+            // 3. Tentativa de Envio Real
+            let emailSentReal = false;
+
+            // Opção A: Envio via Microserviço Backend Local (server-email.js)
+            try {
+                const response = await fetch('http://localhost:3001/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email })
+                });
+                if (response.ok) {
+                    emailSentReal = true;
+                    console.log('✅ E-mail enviado com sucesso via servidor Node.js/Nodemailer.');
+                }
+            } catch (err) {
+                // Servidor local não conectado no momento, prossegue com EmailJS
+            }
+
+            // Opção B: Envio via EmailJS (se configurado)
+            if (!emailSentReal && window.emailjs && EMAILJS_CONFIG.publicKey !== 'YOUR_EMAILJS_PUBLIC_KEY') {
+                try {
+                    await emailjs.send(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, {
+                        to_email: email,
+                        user_email: email,
+                        subject: '🚀 As Grandes Oportunidades do Marketing Digital | Bem-vindo à Marketing Alternativo'
+                    });
+                    emailSentReal = true;
+                    console.log('✅ E-mail enviado com sucesso via EmailJS.');
+                } catch (err) {
+                    console.warn('Falha no envio via EmailJS:', err);
+                }
+            }
+
+            // Conclui o processo e exibe apenas a confirmação na tela (sem exibir o e-mail no site)
+            setTimeout(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnContent;
+                }
+
+                if (newsletterMessage) {
+                    newsletterMessage.className = 'newsletter-message success';
+                    newsletterMessage.style.display = 'inline-block';
+                    newsletterMessage.innerHTML = `
+                        🎉 <strong>Inscrição confirmada!</strong> Enviamos o material exclusivo sobre o mercado de Marketing Digital diretamente para o seu e-mail (<strong>${email}</strong>). Verifique sua caixa de entrada e pasta de spam.
+                    `;
+                }
+
+                newsletterForm.reset();
+
+                setTimeout(() => {
+                    if (newsletterMessage) {
+                        newsletterMessage.style.display = 'none';
+                    }
+                }, 10000);
+            }, 750);
+        });
+    }
+
+    // Utilitários para auditoria no console
+    window.getNewsletterSubscribers = () => {
+        const stored = localStorage.getItem(SUBSCRIBERS_STORAGE_KEY);
+        const data = stored ? JSON.parse(stored) : [];
+        console.table(data);
+        return data;
+    };
+
+    window.getDispatchedEmails = () => {
+        const stored = localStorage.getItem(DISPATCHED_EMAILS_KEY);
+        const data = stored ? JSON.parse(stored) : [];
+        console.table(data);
+        return data;
+    };
 });

@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- EmailJS SDK para envio de e-mails automáticos -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <title>Marketing Alternativo | Estratégia, Criatividade & Resultados</title>
 </head>
 <body>
@@ -22,7 +24,7 @@
         <div id="title">
             <a href="#" class="brand-logo">
                 <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
-                <h1>Marketing <span>Alternativo</span></h1>
+                <h1>Marketing Alternativo</h1>
             </a>
         </div>
 
@@ -347,15 +349,24 @@
     <section class="cta-banner-section">
         <div class="cta-box">
             <h2>Pronto para Levar Sua Marca ao Próximo Nível?</h2>
-            <p>Dê o primeiro passo hoje mesmo e descubra como uma estratégia sob medida pode transformar seu faturamento.</p>
-            <div class="cta-buttons">
+            <p>Dê o primeiro passo com um diagnóstico gratuito ou assine para receber atualizações exclusivas sobre os nossos serviços diretamente no seu e-mail.</p>
+            <div class="cta-actions-group">
                 <button type="button" class="submit-button primary-cta open-modal-btn">
                     <span>Solicitar Diagnóstico Gratuito</span>
                     <i class="fa-solid fa-rocket"></i>
                 </button>
-                <a href="https://wa.me/5585996485562?text=Olá%2C%20gostaria%20de%20falar%20com%20um%20especialista." target="_blank" class="whatsapp-cta">
-                    <i class="fa-brands fa-whatsapp"></i> Falar com Especialista
-                </a>
+
+                <form id="newsletter-form" class="newsletter-form" novalidate>
+                    <div class="newsletter-input-wrapper">
+                        <i class="fa-regular fa-envelope newsletter-icon"></i>
+                        <input type="email" id="newsletter-email" name="email" placeholder="Digite seu e-mail para receber atualizações..." required autocomplete="email">
+                        <button type="submit" class="newsletter-submit-btn">
+                            <span>Receber Atualizações</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <span id="newsletter-message" class="newsletter-message" style="display: none;" aria-live="polite"></span>
+                </form>
             </div>
         </div>
     </section>
@@ -366,7 +377,7 @@
             <div class="footer-brand">
                 <a href="#" class="brand-logo">
                     <span class="logo-icon"><i class="fa-solid fa-bolt"></i></span>
-                    <h2>Marketing <span>Alternativo</span></h2>
+                    <h2>Marketing Alternativo</h2>
                 </a>
                 <span class="footer-copyright">&copy; 2026 Todos os direitos reservados.</span>
             </div>
