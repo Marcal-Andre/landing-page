@@ -66,14 +66,26 @@
 
     .hero-content h2 {
         font-size: 34px;
+        line-height: 1.2;
     }
 
     .hero-content p {
-        font-size: 14px;
+        font-size: 15px;
+    }
+
+    .hero-highlights {
+        align-items: flex-start;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 340px;
+    }
+
+    .modal-container {
+        max-width: 95%;
     }
 
     .glass-form {
-        padding: 20px;
+        padding: 22px 18px;
     }
 
     .stats-container {
