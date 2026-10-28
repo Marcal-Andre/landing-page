@@ -347,7 +347,26 @@ main {
 /* -------------------------------------------------------------
    MODAL POP-UP DO FORMULÁRIO DE DIAGNÓSTICO
 ------------------------------------------------------------- */
+/* ── Utilitários de Estado Controlados via JavaScript ────────
+   Nenhum style="" deve existir no HTML. Todo estado visual é
+   gerenciado adicionando/removendo estas classes via classList.
+   ──────────────────────────────────────────────────────────── */
+
+/* Oculto por padrão — JS remove esta classe para exibir */
+.is-hidden {
+    display: none !important;
+}
+
+/* Bloqueia o scroll do body quando modal/menu está aberto */
+body.is-locked {
+    overflow: hidden;
+}
+
+/* Modal: oculto por padrão; .is-active o torna visível */
 .modal-overlay {
+    display: none;
+}
+.modal-overlay.is-active {
     position: fixed;
     inset: 0;
     z-index: 9999;
@@ -356,6 +375,13 @@ main {
     justify-content: center;
     padding: 20px;
 }
+
+/* Nota de sub-texto no feedback do formulário (substitui inline style="font-size:13px;color:#cbd5e1") */
+.form-msg-note {
+    font-size: 13px;
+    color: #cbd5e1;
+}
+
 
 .modal-backdrop {
     position: absolute;

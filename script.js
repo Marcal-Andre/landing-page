@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function openModal() {
         if (!diagnosticModal) return;
-        diagnosticModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        diagnosticModal.classList.add('is-active');
+        document.body.classList.add('is-locked');
 
         // Foca automaticamente no campo de nome
         setTimeout(() => {
@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeModal() {
         if (!diagnosticModal) return;
-        diagnosticModal.style.display = 'none';
-        document.body.style.overflow = '';
+        diagnosticModal.classList.remove('is-active');
+        document.body.classList.remove('is-locked');
         if (formMessage) {
-            formMessage.style.display = 'none';
+            formMessage.classList.add('is-hidden');
         }
     }
 
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Fecha ao pressionar ESC
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && diagnosticModal && diagnosticModal.style.display === 'flex') {
+        if (e.key === 'Escape' && diagnosticModal && diagnosticModal.classList.contains('is-active')) {
             closeModal();
         }
         // Fecha o menu mobile também com ESC
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mainNav.classList.add('nav-open');
         hamburgerBtn.classList.add('is-open');
         hamburgerBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('is-locked');
     }
 
     function closeMobileMenu() {
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mainNav.classList.remove('nav-open');
         hamburgerBtn.classList.remove('is-open');
         hamburgerBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
+        document.body.classList.remove('is-locked');
     }
 
     if (hamburgerBtn) {
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (formMessage) {
                     formMessage.textContent = 'Revise os dados preenchidos nos campos acima.';
                     formMessage.className = 'form-message error';
-                    formMessage.style.display = 'flex';
+                    formMessage.classList.remove('is-hidden');
                 }
                 return;
             }
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (formMessage) {
                     formMessage.className = 'form-message success';
-                    formMessage.style.display = 'flex';
+                    formMessage.classList.remove('is-hidden');
 
                     if (!waWindow || waWindow.closed || typeof waWindow.closed === 'undefined') {
                         formMessage.innerHTML = `
@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         formMessage.innerHTML = `
                             <span><strong>🎉 Solicitação enviada com sucesso!</strong></span>
-                            <span style="font-size: 13px; color: #cbd5e1;">Abrimos o WhatsApp para seu atendimento. Se não abriu:</span>
+                            <span class="form-msg-note">Abrimos o WhatsApp para seu atendimento. Se não abriu:</span>
                             <a href="${waUrl}" target="_blank" class="whatsapp-redirect-btn">
                                 <i class="fa-brands fa-whatsapp"></i> Abrir WhatsApp Manualmente
                             </a>
@@ -340,13 +340,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isLoading) {
             submitBtn.disabled = true;
             if (btnText) btnText.textContent = 'Enviando solicitação...';
-            if (btnIcon) btnIcon.style.display = 'none';
-            if (btnSpinner) btnSpinner.style.display = 'inline-block';
+            if (btnIcon) btnIcon.classList.add('is-hidden');
+            if (btnSpinner) btnSpinner.classList.remove('is-hidden');
         } else {
             submitBtn.disabled = false;
             if (btnText) btnText.textContent = 'Quero Meu Diagnóstico Gratuito';
-            if (btnIcon) btnIcon.style.display = 'inline-block';
-            if (btnSpinner) btnSpinner.style.display = 'none';
+            if (btnIcon) btnIcon.classList.remove('is-hidden');
+            if (btnSpinner) btnSpinner.classList.add('is-hidden');
         }
     }
 
@@ -427,7 +427,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (newsletterMessage) {
                     newsletterMessage.textContent = 'Por favor, digite um endereço de e-mail válido.';
                     newsletterMessage.className = 'newsletter-message error';
-                    newsletterMessage.style.display = 'inline-block';
+                    newsletterMessage.classList.remove('is-hidden');
                 }
                 return;
             }
@@ -512,7 +512,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (newsletterMessage) {
                     newsletterMessage.className = 'newsletter-message success';
-                    newsletterMessage.style.display = 'inline-block';
+                    newsletterMessage.classList.remove('is-hidden');
                     newsletterMessage.innerHTML = `
                         🎉 <strong>Inscrição confirmada!</strong> Enviamos o material exclusivo sobre o mercado de Marketing Digital diretamente para o seu e-mail (<strong>${email}</strong>). Verifique sua caixa de entrada e pasta de spam.
                     `;
@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 setTimeout(() => {
                     if (newsletterMessage) {
-                        newsletterMessage.style.display = 'none';
+                        newsletterMessage.classList.add('is-hidden');
                     }
                 }, 10000);
             }, 750);
