@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Básico -->
+    <meta name="description" content="A Marketing Alternativo transforma marcas com estratégias únicas de tráfego pago, branding, social media e landing pages de alta conversão. Solicite seu diagnóstico gratuito!">
+    <meta name="keywords" content="marketing digital, tráfego pago, branding, social media, landing page, agência de marketing, Meta Ads, Google Ads">
+    <meta name="author" content="Marketing Alternativo">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph (compartilhamento no WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Marketing Alternativo | Estratégia, Criatividade & Resultados">
+    <meta property="og:description" content="Estratégias únicas para fazer sua marca decolar no digital. Diagnóstico gratuito e personalizado para o seu negócio.">
+    <meta property="og:image" content="./img/ilustracao-desenhada-a-mao-de-pessoas-com-smartphone-para-marketing (2).png">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Favicon (ícone na aba do navegador) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%236d28d9'/><text y='.9em' font-size='72' x='12'>⚡</text></svg>">
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="media.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,13 +45,20 @@
             </a>
         </div>
 
-        <nav>
+        <!-- Botão Hambúrguer (mobile) -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <nav id="main-nav">
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#diferenciais">Diferenciais</a></li>
-                <li><a href="#depoimentos">Depoimentos</a></li>
-                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#home" class="nav-link-item">Home</a></li>
+                <li><a href="#servicos" class="nav-link-item">Serviços</a></li>
+                <li><a href="#diferenciais" class="nav-link-item">Diferenciais</a></li>
+                <li><a href="#depoimentos" class="nav-link-item">Depoimentos</a></li>
+                <li><a href="#faq" class="nav-link-item">FAQ</a></li>
                 <li>
                     <a href="https://wa.me/5585996485562?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20de%20marketing." id="inscreva-se-btn" target="_blank">
                         Fale no WhatsApp 
@@ -392,9 +416,9 @@
 
             <div class="footer-right">
                 <div class="social-links">
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://wa.me/5585996485562" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="social-link disabled" aria-disabled="true" aria-label="Instagram (em breve)" title="Instagram — Em breve"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link disabled" aria-disabled="true" aria-label="LinkedIn (em breve)" title="LinkedIn — Em breve"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/5585996485562" target="_blank" class="social-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>

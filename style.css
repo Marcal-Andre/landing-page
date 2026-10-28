@@ -199,6 +199,57 @@ nav li a:not(#inscreva-se-btn):hover::after {
     transform: scale(1.1);
 }
 
+/* ── Botão Hambúrguer (Menu Mobile) ─────────────────────────── */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: rgba(76, 29, 149, 0.2);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 8px;
+    transition: background 0.25s ease;
+    z-index: 200;
+}
+
+.hamburger-btn:hover {
+    background: rgba(109, 40, 217, 0.35);
+}
+
+.hamburger-line {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: transform 0.35s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
+
+/* Estado aberto do hambúrguer: vira X */
+.hamburger-btn.is-open .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger-btn.is-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger-btn.is-open .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Social Links Desabilitados (em breve) ──────────────────── */
+.social-link.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 /* Layout Principal (Hero Section) */
 main {
     max-width: 1240px;

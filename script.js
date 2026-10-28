@@ -60,7 +60,53 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && diagnosticModal && diagnosticModal.style.display === 'flex') {
             closeModal();
         }
+        // Fecha o menu mobile também com ESC
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+        }
     });
+
+    // -------------------------------------------------------------
+    // 0.5 MENU HAMBÚRGUER (MOBILE)
+    // -------------------------------------------------------------
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mainNav = document.getElementById('main-nav');
+
+    function openMobileMenu() {
+        if (!mainNav || !hamburgerBtn) return;
+        mainNav.classList.add('nav-open');
+        hamburgerBtn.classList.add('is-open');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+        if (!mainNav || !hamburgerBtn) return;
+        mainNav.classList.remove('nav-open');
+        hamburgerBtn.classList.remove('is-open');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', () => {
+            const isOpen = mainNav.classList.contains('nav-open');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+    }
+
+    // Fecha o menu ao clicar em qualquer link da nav mobile
+    if (mainNav) {
+        mainNav.querySelectorAll('.nav-link-item').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+    }
 
     // -------------------------------------------------------------
     // 1. MÁSCARA INTELIGENTE DE TELEFONE (PADRÃO BRASILEIRO)
